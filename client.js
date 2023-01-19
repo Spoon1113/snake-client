@@ -7,15 +7,16 @@ const connect = () => {
 // interpret incoming data as text
   conn.setEncoding("utf8")
 
-  conn.write("Name: SPO")
+  
   conn.on("connect", () => {
     console.log("Successfully connected to Server!")
+    conn.write("Name: SPO")
+    // setInterval(() => {
+    //   conn.write("Move: up"), 50
+    // });
   });
   
-  conn.on("data", (data) => {
-    console.log(data)
-  });
-  return conn;
+return conn;
 };
 
-module.exports = connect;
+module.exports = { connect };
